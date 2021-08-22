@@ -3,6 +3,7 @@
     package="com.akan.musicplayer">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
         android:requestLegacyExternalStorage="true"

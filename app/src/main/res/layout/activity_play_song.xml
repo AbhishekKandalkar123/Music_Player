@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
+    android:orientation="vertical"
     tools:context=".Play_Song">
+
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="352dp"
-        android:layout_height="285dp"
+        android:layout_width="match_parent"
+        android:layout_height="323dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,8 +21,9 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="288dp"
-        android:layout_height="wrap_content"
+        android:layout_width="308dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="50dp"
         android:ellipsize="marquee"
         android:fadingEdge="horizontal"
         android:focusable="true"
@@ -29,8 +33,9 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:scrollHorizontally="true"
         android:singleLine="true"
-        android:text="TextView"
+        android:hint="@string/textview"
         android:textColor="#FFFFFF"
+        android:textColorHint="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,20 +44,49 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <LinearLayout
-        android:layout_width="361dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="139dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar">
+        android:paddingTop="100dp">
 
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_00_00"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_00_00"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp">
         <ImageView
             android:id="@+id/previous"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
             app:srcCompat="@drawable/previous" />
 
         <ImageView
@@ -67,38 +101,33 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
             app:srcCompat="@drawable/next" />
     </LinearLayout>
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="322dp"
-        android:layout_height="13dp"
-        android:layout_marginTop="184dp"
-        android:background="#272727"
-        android:thumbTint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
 
-    <TextView
-        android:id="@+id/txt1"
-        android:layout_width="59dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="16dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/txt2"
-        app:layout_constraintStart_toStartOf="parent" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="52dp">
 
-    <TextView
-        android:id="@+id/txt2"
-        android:layout_width="57dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.gauravk.audiovisualizer.visualizer.BarVisualizer
+                xmlns:custom="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/blast"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                custom:avDensity="0.5"
+                custom:avType="outline"
+                custom:avWidth="4dp"
+                custom:avColor="#83F3ED"
+                custom:avSpeed="normal"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
